@@ -17,7 +17,7 @@ server.get('/discos', async (req, res) => {
         if (artista) discos = await collection.find({ artista }).toArray();
         else discos = await collection.find().sort({artista: 1 }).toArray();
 
-        if (discos.length === 0) return res.status(400).send('Error. El Artista no existe en la base de datos.');
+        if (discos.length === 0) return res.status(400).send('Error. El Artista no existe en la Coleccion.');
 
         res.status(200).send(JSON.stringify(discos, null, '\t'));
     } catch (error) {
